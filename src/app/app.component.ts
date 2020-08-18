@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'formation-app1',
   templateUrl: './app.component.html',
+  // template: '<h1>Coucou {{title}} !</h1>',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app1';
+  public title = 'app1';
+
+  methode1() {
+    console.log("coucou");
+  }
 }

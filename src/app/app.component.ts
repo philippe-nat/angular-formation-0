@@ -9,7 +9,5 @@ export class AppComponent {
   private _titre = 'Composant racine';
   get titre() {return this._titre;}
 
-  methode1() {
-    console.log("coucou");
-  }
 }
+

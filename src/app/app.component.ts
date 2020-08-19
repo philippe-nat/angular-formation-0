@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'formation-root',
+  selector: 'nat-root',
   templateUrl: './app.component.html',
-  // template: '<h1>Coucou {{title}} !</h1>',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title = 'app01';
+  private _titre = 'Composant racine';
+  get titre() {return this._titre;}
 
   methode1() {
     console.log("coucou");

@@ -107,6 +107,7 @@
         "allow-pascal-case"
       ]
     },
+    "no-unused-variable": true,
     "whitespace": {
       "options": [
         "check-branch",

@@ -21,4 +21,10 @@ export class EnteteComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  public afficheMomentActuel():string {
+    let auj:Date = new Date();
+    let paf;
+    return auj.toLocaleDateString('fr-FR') +  " " + auj.getHours() + ":" + auj.getMinutes();
+  }
 }

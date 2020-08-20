@@ -1,0 +1,22 @@
+nav {
+    background-color:#CCCCFF;
+    border:solid 1px blue;
+    padding: 4px 40px 4px 40px;
+    margin: 10px 20px 10px 20px;
+}
+
+li {
+    list-style: none;  
+    display: inline; 
+    border:solid 2px #FFFFFF;
+    margin: 5px 20px 5px 20px;
+}
+
+a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font:normal normal 16px Arial;
+    background-color:#333333;
+    color:#CCCC00;
+    padding: 8px 40px 8px 40px;
+}

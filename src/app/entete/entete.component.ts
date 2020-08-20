@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'nat-entete',
   templateUrl: './entete.component.html',
   styleUrls: ['./entete.component.css']
-  // styles:[`p {border:solid blue 1px}`]
 })
 export class EnteteComponent implements OnInit {
   private readonly _aujourdhui: Date;

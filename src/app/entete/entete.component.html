@@ -1,2 +1,7 @@
 <p>Bienvenue dans l'application</p>
 <p>Nous sommes le {{afficheMomentActuel()}}</p>
+<p>Compteur : {{compteur}}</p>
+<!-- <p>Nous sommes le <span [textContent]="afficheMomentActuel()"></span></p> -->
+<button (click) = "incrementeCompteur()">Compteur </button>
+<button (click) = "logCompteur()">log</button>
+<button (click) = "logCoucou()">log</button>

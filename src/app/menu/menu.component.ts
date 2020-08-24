@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'nat-menu',
@@ -7,12 +7,32 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   private _titre: string;
+  private _infoBulle:string;
+  private _nbClics:number = 0;
+  private static nbClicsTotal:number = 0;
 
   get titre() { return this._titre; }
-  @Input('title') set titre(t: string) { this._titre = t; }
+  @Input() set titre(t: string) { this._titre = t; }
+
+  get infoBulle() { return this._infoBulle; }
+  @Input() set infoBulle(info: string) { this._infoBulle = info; }
+
+  get nbClics() { return this._nbClics; }
+  set nbClics(c:number) { this._nbClics = c; }
+  
+  get nbClicsTotal() { return MenuComponent.nbClicsTotal; }
 
   constructor() {
     this.titre = "menu";
+    this.infoBulle = "";
+  }
+
+  @Output() clickEvent = new EventEmitter();
+  clicCompteur():void {
+    this.nbClics++;
+    MenuComponent.nbClicsTotal++;
+    console.log("nb de clics sur le bouton du menu : ", this.nbClics, ", nb total :", MenuComponent.nbClicsTotal);
+    this.clickEvent.emit();
   }
 
   ngOnInit(): void {

@@ -1,7 +1,8 @@
 <nav>
-    <p>{{titre}}</p>
+    <p><abbr title={{infoBulle}}>{{titre}}</abbr> ({{nbClics}} / {{nbClicsTotal}})</p>
     <ul>
         <li><a href="https://www.google.fr">Google</a></li>
         <li><a href="https://www.perdu.com">Perdu</a></li>
     </ul>
+    <button (click)="clicCompteur()">clic !</button>
 </nav>

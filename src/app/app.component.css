@@ -1,0 +1,28 @@
+header {
+    background-color:#CCFFCC;
+    margin-left:180px;
+    margin-bottom:40px;
+}
+
+aside {
+    background-color:yellow;
+    width:150px;
+    float: left; 
+}
+
+main {
+    background-color: indianred;
+    margin-left:180px;
+}
+
+footer {
+    margin-left:180px;
+    background-color:#AAAAFF;
+} 
+
+.menu_vertical li {display:block;}
+.menu_horizontal li {display: inline;} 
+
+
+*[disposition="vertical"] li {display:block;}
+*[disposition="horizontal"] li {display:inline;}

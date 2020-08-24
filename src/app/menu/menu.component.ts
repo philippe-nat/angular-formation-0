@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'nat-menu',
@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  private _titre: string;
 
-  constructor() { }
+  get titre() { return this._titre; }
+  @Input() set titre(t: string) { this._titre = t; }
+
+  constructor() {
+    this.titre = "menu";
+  }
 
   ngOnInit(): void {
   }

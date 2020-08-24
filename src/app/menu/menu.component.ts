@@ -9,7 +9,7 @@ export class MenuComponent implements OnInit {
   private _titre: string;
 
   get titre() { return this._titre; }
-  @Input() set titre(t: string) { this._titre = t; }
+  @Input('title') set titre(t: string) { this._titre = t; }
 
   constructor() {
     this.titre = "menu";
@@ -17,5 +17,4 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -9,5 +9,8 @@ export class AppComponent {
   private _titre = 'Composant racine';
   get titre() {return this._titre;}
 
+  getTitre():string {return "titre app!";}
+  public titreMenu = "Super menu";
+
 }
 

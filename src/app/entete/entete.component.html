@@ -6,6 +6,7 @@
 <button *ngIf="(compteur != 0) || (aujourdhui.getSeconds() % 2)" (click) = "logCoucou()">log</button>
 
 <nat-menu
-    [titre]='{valeur:"Menu", infoBulle:""}'>
+    [titre]='{valeur:"Menu", infoBulle:""}'
     (clickEvent) = "augmenteCompteur($event)"
+>
 </nat-menu>

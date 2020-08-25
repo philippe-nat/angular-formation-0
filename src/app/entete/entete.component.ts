@@ -21,9 +21,7 @@ export class EnteteComponent implements OnInit {
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     this._aujourdhuiStr = this._aujourdhui.toLocaleDateString('fr-FR', options);
   }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public afficheMomentActuel(): string {
     let auj: Date = new Date();
@@ -31,6 +29,11 @@ export class EnteteComponent implements OnInit {
   }
 
   public incrementeCompteur():void {this.compteur++;}
+  public augmenteCompteur(valeur: number):void {
+    console.log("appel à augmenteCompteur. Ancienne valeur :", this.compteur);
+    this.compteur+=valeur;
+    console.log("Nouvelle valeur :", this.compteur);
+  }
   public logCompteur():void {console.log("compteur = ", this.compteur);}
-  public logCoucou():void {console.log("coucou");}
+  public logCoucou():void {console.log("méthode logCoucou");}
 }

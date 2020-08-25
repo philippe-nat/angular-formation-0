@@ -28,13 +28,15 @@ export class MenuComponent implements OnInit {
   }
 
   @Output() clickEvent = new EventEmitter();
-  clicCompteur():void {
+  public clicCompteur(detailEvenement: any):void {
+    console.log("clicCompteur, detailEvenement :", detailEvenement);
+    console.log("clicCompteur, nbClics avant changement :", this.nbClics);
     this.nbClics++;
     MenuComponent.nbClicsTotal++;
     console.log("nb de clics sur le bouton du menu : ", this.nbClics, ", nb total :", MenuComponent.nbClicsTotal);
-    this.clickEvent.emit();
+    // this.clickEvent.emit();
+    this.clickEvent.emit(this.nbClics);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

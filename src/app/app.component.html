@@ -2,9 +2,10 @@
     <nat-entete></nat-entete>
 </header>
 <aside>
-    <!-- <nat-menu titre="Menu latéral"></nat-menu> -->
-    <nat-menu [titre]="menu.titre" [infoBulle] = "menu.infoBulle"></nat-menu>
-    <!-- <nat-menu [tire]="titreMenu"></nat-menu> -->
+    <!-- <nat-menu [titre]="menu.titre" [infoBulle] = "menu.infoBulle"></nat-menu> -->
+    <!-- <nat-menu [titre]="titre"></nat-menu> -->
+    <!-- <nat-menu [titre]='{valeur:titre, infoBulle:"menu latéral"}'></nat-menu> -->
+    <nat-menu [titre]='{valeur:titre, infoBulle:""}'></nat-menu>
 </aside>
 <main>
     <h1>Premier Composant : {{titre}}</h1>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TimeoutError } from 'rxjs';
 
 @Component({
   selector: 'nat-root',
@@ -8,12 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   private _titre:string = 'Composant racine';
   get titre() {return this._titre;}
+  // private _infoBulle:string = 'Composant racine';
+  // get titre() {return this._titre;}
 
-  private _menu = {
-    titre:"titre menu",
-    infoBulle:"C'est le titre du menu"
-  };
-  get menu() {return this._menu;}
+  // get menu() {return this._menu;}
+  // get titreMenu() {return this._titreMenu;}
  
 }
 

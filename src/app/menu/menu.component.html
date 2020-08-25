@@ -1,5 +1,13 @@
 <nav>
-    <p><abbr title={{infoBulle}}>{{titre}}</abbr> ({{nbClics}} / {{nbClicsTotal}})</p>
+    <p *ngIf="titre.infoBulle">
+        <abbr title={{titre.infoBulle}}>{{titre.valeur}}</abbr> ({{nbClics}} / {{nbClicsTotal}})
+    </p>
+
+    <p *ngIf="!titre.infoBulle">
+        {{titre.valeur}} ({{nbClics}} / {{nbClicsTotal}})
+    </p>
+
+    <!-- <p><abbr title={{infoBulle}}>{{titre}}</abbr> ({{nbClics}} / {{nbClicsTotal}})</p> -->
     <ul>
         <li><a href="https://www.google.fr">Google</a></li>
         <li><a href="https://www.perdu.com">Perdu</a></li>

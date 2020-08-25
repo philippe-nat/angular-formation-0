@@ -4,8 +4,12 @@
 <button (click) = "incrementeCompteur()">Compteur </button>
 <button (click) = "logCompteur()">log</button>
 <button *ngIf="(compteur != 0) || (aujourdhui.getSeconds() % 2)" (click) = "logCoucou()">log</button>
-<nat-menu 
-    title="Menu principal" 
+<!-- <nat-menu 
+    titre="Menu principal" 
     (clickEvent) = "augmenteCompteur($event)"
-></nat-menu>
+></nat-menu> -->
 
+<nat-menu
+    [titre]='{valeur:"Menu", infoBulle:""}'>
+    (clickEvent) = "augmenteCompteur($event)"
+</nat-menu>

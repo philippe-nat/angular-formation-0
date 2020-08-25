@@ -1,21 +1,31 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+interface Titre {
+  valeur:string;
+  infoBulle:string;
+}
+
 @Component({
   selector: 'nat-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  private _titre: string;
-  private _infoBulle:string;
+  // private _titre: string;
+  // private _infoBulle:string;
+  private _titre:Titre;
   private _nbClics:number = 0;
   private static nbClicsTotal:number = 0;
 
-  get titre() { return this._titre; }
-  @Input() set titre(t: string) { this._titre = t; }
+  // get titre() { return this._titre; }
+  // @Input() set titre(t: string) { this._titre = t; }
 
-  get infoBulle() { return this._infoBulle; }
-  @Input() set infoBulle(info: string) { this._infoBulle = info; }
+  // get infoBulle() { return this._infoBulle; }
+  // @Input() set infoBulle(info: string) { this._infoBulle = info; }
+
+
+  get titre() { return this._titre; }
+  @Input() set titre(t: Titre) { this._titre = t; }
 
   get nbClics() { return this._nbClics; }
   set nbClics(c:number) { this._nbClics = c; }
@@ -23,10 +33,12 @@ export class MenuComponent implements OnInit {
   get nbClicsTotal() { return MenuComponent.nbClicsTotal; }
 
   constructor() {
-    this.titre = "menu";
-    this.infoBulle = "";
+    // this.titre = "menu";
+    // this.infoBulle = "";
+    // this.titre = {valeur:"menu", infoBulle:"menu de l'entête"};
+    this.titre = {valeur:"menu", infoBulle:""};
   }
-
+  
   @Output() clickEvent = new EventEmitter();
   public clicCompteur(detailEvenement: any):void {
     console.log("clicCompteur, detailEvenement :", detailEvenement);
@@ -34,7 +46,6 @@ export class MenuComponent implements OnInit {
     this.nbClics++;
     MenuComponent.nbClicsTotal++;
     console.log("nb de clics sur le bouton du menu : ", this.nbClics, ", nb total :", MenuComponent.nbClicsTotal);
-    // this.clickEvent.emit();
     this.clickEvent.emit(this.nbClics);
   }
 

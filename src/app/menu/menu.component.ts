@@ -11,18 +11,9 @@ interface Titre {
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  // private _titre: string;
-  // private _infoBulle:string;
   private _titre:Titre;
   private _nbClics:number = 0;
   private static nbClicsTotal:number = 0;
-
-  // get titre() { return this._titre; }
-  // @Input() set titre(t: string) { this._titre = t; }
-
-  // get infoBulle() { return this._infoBulle; }
-  // @Input() set infoBulle(info: string) { this._infoBulle = info; }
-
 
   get titre() { return this._titre; }
   @Input() set titre(t: Titre) { this._titre = t; }
@@ -33,9 +24,6 @@ export class MenuComponent implements OnInit {
   get nbClicsTotal() { return MenuComponent.nbClicsTotal; }
 
   constructor() {
-    // this.titre = "menu";
-    // this.infoBulle = "";
-    // this.titre = {valeur:"menu", infoBulle:"menu de l'entête"};
     this.titre = {valeur:"menu", infoBulle:""};
   }
   

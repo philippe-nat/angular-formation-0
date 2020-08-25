@@ -9,11 +9,5 @@ import { TimeoutError } from 'rxjs';
 export class AppComponent {
   private _titre:string = 'Composant racine';
   get titre() {return this._titre;}
-  // private _infoBulle:string = 'Composant racine';
-  // get titre() {return this._titre;}
-
-  // get menu() {return this._menu;}
-  // get titreMenu() {return this._titreMenu;}
- 
 }
 

@@ -9,7 +9,6 @@ import {Titre} from '../core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // private _titre:string = 'Composant racine';
   private _titre:Titre = {valeur:"menu", infoBulle:"menu latéral"};
   
   get titre() {return this._titre;}

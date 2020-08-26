@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ItemMenu} from '../interfaces/itemmenu';
+import {ItemMenu} from '../structures/itemmenu';
+import {Orientation} from '../structures/orientation';
 
 @Component({
   selector: 'nat-entete',
@@ -10,15 +11,16 @@ export class EnteteComponent implements OnInit {
   private readonly _aujourdhui: Date;
   private readonly _aujourdhuiStr: string;
   private _compteur: number;
+  private _menuOrientation:Orientation = Orientation.HORIZONTAL;
+  private _items:ItemMenu[];
+  // private _boutonInactif:boolean = false;
 
   get aujourdhui() { return this._aujourdhui; }
   get aujourdhuiStr() { return this._aujourdhuiStr; }
   get compteur() {return this._compteur;}
   set compteur(val:number) {this._compteur = val;}
-
-  private _items:ItemMenu[];
-  // private _boutonInactif:boolean = false;
-
+  get menuOrientation() {return this._menuOrientation;}
+  set menuOrientation(o:Orientation) {this._menuOrientation = o;}
   get items() { return this._items; }
   set items(t:ItemMenu[]) { this._items = t; }
 
@@ -27,10 +29,11 @@ export class EnteteComponent implements OnInit {
     this._aujourdhui = new Date();
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     this._aujourdhuiStr = this._aujourdhui.toLocaleDateString('fr-FR', options);
+    this.menuOrientation = Orientation.HORIZONTAL;
 
     this.items = [
       {url:"https://www.google.fr", intitule:"Google"},
-      {url:"https://www.bing.fr", intitule:"Bing"},
+      {url:"https://www.bing.fr",   intitule:"Bing"},
       {url:"https://www.perdu.com", intitule:"Perdu !"}
     ];
   }

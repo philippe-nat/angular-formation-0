@@ -2,10 +2,10 @@
     <nat-entete></nat-entete>
 </header>
 <aside>
-    <nat-menu [titre]='titre' [items]='items'></nat-menu>
+    <nat-menu [titre]='titre' [items]='items' [orientation]='menuOrientation'></nat-menu>
 </aside>
 <main>
-    <h1>Premier Composant : {{titre}}</h1>
+    <h1>Premier Composant : {{titre.valeur}}</h1>
     <p>Bienvenue !</p>
 </main>
 <footer>Pied de page</footer>

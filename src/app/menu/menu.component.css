@@ -8,7 +8,12 @@ nav a {
     font:normal normal 16px Arial;
 }
 
-.menu_vertical li {
+li.vertical {
 	display:block;
     padding-top:20px;
+}
+
+li.horizontal {
+	display:inline;
+    padding-left:10px;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Titre} from '../interfaces/titre';
-import {ItemMenu} from '../interfaces/itemmenu';
+import {Titre} from '../structures/titre';
+import {ItemMenu} from '../structures/itemmenu';
+import {Orientation} from '../structures/orientation';
 
 // interface ItemMenu {
 //   url:string;
@@ -18,12 +19,16 @@ export class MenuComponent implements OnInit {
   private static nbClicsTotal:number = 0;
   private _items:ItemMenu[];
   private _boutonInactif:boolean = false;
-
+  private _orientation:Orientation;
+  
   get titre() { return this._titre; }
   @Input() set titre(t: Titre) { this._titre = t; }
 
   get items() { return this._items; }
   @Input() set items(t: Array<any>) { this._items = t; }
+
+  get orientation() { return this._orientation; }
+  @Input() set orientation(o:Orientation) { this._orientation = o; }
 
   get boutonInactif() { return this._boutonInactif; }
   set boutonInactif(a: boolean) { this._boutonInactif = a; }
@@ -38,7 +43,8 @@ export class MenuComponent implements OnInit {
     //   {url:"https://www.google.fr", intitule:"google"},
     //   {url:"https://www.bing.fr", intitule:"bing"}
     // ];
-  }
+    // console.log("menu : orientation = ", this.orientation);
+}
   
   @Output() clickEvent = new EventEmitter();
   public clicCompteur(detailEvenement: any):void {

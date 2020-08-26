@@ -8,8 +8,11 @@
     </p>
 
     <ul>
-        <li><a href="https://www.google.fr">Google</a></li>
-        <li><a href="https://www.perdu.com">Perdu</a></li>
+        <!-- <li><a href="https://www.google.fr">Google</a></li>
+        <li><a href="https://www.perdu.com">Perdu</a></li> -->
+        <li *ngFor="let i of items">
+            <a href="{{i.url}}">{{i.intitule}}</a>
+        </li>
     </ul>
     <button (click)="clicCompteur($event)">clic !</button>
 </nav>

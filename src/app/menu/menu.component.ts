@@ -1,6 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Titre} from '../../core';
 
+interface ItemMenu {
+  url:string;
+  intitule:string; 
+}
+
 @Component({
   selector: 'nat-menu',
   templateUrl: './menu.component.html',
@@ -10,7 +15,7 @@ export class MenuComponent implements OnInit {
   private _titre:Titre;
   private _nbClics:number = 0;
   private static nbClicsTotal:number = 0;
-  private _items = [];
+  private _items:ItemMenu[];
 
   get titre() { return this._titre; }
   @Input() set titre(t: Titre) { this._titre = t; }
@@ -24,7 +29,10 @@ export class MenuComponent implements OnInit {
 
   constructor() {
     this.titre = {valeur:"menu", infoBulle:""};
-    this.items = [];
+    this.items = [
+      {url:"https://www.google.fr", intitule:"google"},
+      {url:"https://www.bing.fr", intitule:"bing"}
+    ];
   }
   
   @Output() clickEvent = new EventEmitter();

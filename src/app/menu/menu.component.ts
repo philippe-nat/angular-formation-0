@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Titre} from '../../core';
+import {Titre} from '../interfaces/titre';
+import {ItemMenu} from '../interfaces/itemmenu';
 
-interface ItemMenu {
-  url:string;
-  intitule:string; 
-}
+// interface ItemMenu {
+//   url:string;
+//   intitule:string; 
+// }
 
 @Component({
   selector: 'nat-menu',
@@ -16,6 +17,7 @@ export class MenuComponent implements OnInit {
   private _nbClics:number = 0;
   private static nbClicsTotal:number = 0;
   private _items:ItemMenu[];
+  private _boutonInactif:boolean = false;
 
   get titre() { return this._titre; }
   @Input() set titre(t: Titre) { this._titre = t; }
@@ -23,16 +25,19 @@ export class MenuComponent implements OnInit {
   get items() { return this._items; }
   @Input() set items(t: Array<any>) { this._items = t; }
 
+  get boutonInactif() { return this._boutonInactif; }
+  set boutonInactif(a: boolean) { this._boutonInactif = a; }
+
   get nbClics() { return this._nbClics; }
   set nbClics(c:number) { this._nbClics = c; }
   get nbClicsTotal() { return MenuComponent.nbClicsTotal; }
 
   constructor() {
-    this.titre = {valeur:"menu", infoBulle:""};
-    this.items = [
-      {url:"https://www.google.fr", intitule:"google"},
-      {url:"https://www.bing.fr", intitule:"bing"}
-    ];
+    // this.titre = {valeur:"menu", infoBulle:""};
+    // this.items = [
+    //   {url:"https://www.google.fr", intitule:"google"},
+    //   {url:"https://www.bing.fr", intitule:"bing"}
+    // ];
   }
   
   @Output() clickEvent = new EventEmitter();

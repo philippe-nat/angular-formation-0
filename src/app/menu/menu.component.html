@@ -9,8 +9,14 @@
 
     <ul>
         <li *ngFor="let i of items">
-            <a href="{{i.url}}">{{i.intitule}}</a>
+            <a 
+                [href]="i.url" 
+                [textContent]="i.intitule"
+                [style.color]="'#FF0000'"
+                [style.fontStyle]='italic'
+            ></a>
         </li>
     </ul>
-    <button (click)="clicCompteur($event)">clic !</button>
+    <button [disabled]='boutonInactif' (click)="clicCompteur($event)">clic !</button>
+    <button disabled='{{boutonInactif}}' (click)="clicCompteur($event)">clic2 !</button>
 </nav>

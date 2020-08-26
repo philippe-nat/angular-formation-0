@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemMenu} from '../interfaces/itemmenu';
 
 @Component({
   selector: 'nat-entete',
@@ -15,11 +16,23 @@ export class EnteteComponent implements OnInit {
   get compteur() {return this._compteur;}
   set compteur(val:number) {this._compteur = val;}
 
+  private _items:ItemMenu[];
+  // private _boutonInactif:boolean = false;
+
+  get items() { return this._items; }
+  set items(t:ItemMenu[]) { this._items = t; }
+
   constructor() {
     this._compteur = 0;
     this._aujourdhui = new Date();
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     this._aujourdhuiStr = this._aujourdhui.toLocaleDateString('fr-FR', options);
+
+    this.items = [
+      {url:"https://www.google.fr", intitule:"Google"},
+      {url:"https://www.bing.fr", intitule:"Bing"},
+      {url:"https://www.perdu.com", intitule:"Perdu !"}
+    ];
   }
   ngOnInit(): void {}
 

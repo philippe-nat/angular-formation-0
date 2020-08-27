@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { EnteteComponent } from './entete/entete.component';
 import { MenuComponent } from './menu/menu.component';
 import { InitCap } from './pipes/initcap.pipe';
+import { Boolean2Str } from './pipes/boolean2str.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnteteComponent,
     MenuComponent,
-    InitCap
+    InitCap,
+    Boolean2Str
   ],
   imports: [
     BrowserModule

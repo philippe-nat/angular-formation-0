@@ -4,7 +4,6 @@ import {Titre} from './structures/titre';
 import {ItemMenu} from './structures/itemmenu';
 import {Orientation} from './structures/orientation';
 
-
 @Component({
   selector: 'nat-root',
   templateUrl: './app.component.html',
@@ -28,12 +27,10 @@ export class AppComponent {
   constructor() {
     this.titre = {valeur:"Titre", infoBulle:"titre de la page"};
     this.items = [
-      {url:"https://www.google.fr", intitule:"Google"},
-      {url:"https://www.bing.fr", intitule:"Bing"}
+      {url:"https://www.google.fr", intitule:"google"},
+      {url:"https://www.bing.fr", intitule:"bing"}
     ];
-    // this.menuOrientation = Orientation.HORIZONTAL; // 0
     this.menuOrientation = Orientation.VERTICAL; // 1
-    // console.log("app:orientation=", this.menuOrientation);
   }
 }
 

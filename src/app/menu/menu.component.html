@@ -11,7 +11,7 @@
         <li *ngFor="let i of items" [ngClass]="{'horizontal':orientation==0, 'vertical':orientation==1}">
             <a 
                 [href]="i.url" 
-                [textContent]="i.intitule"
+                [textContent]="i.intitule|initCap"
             ></a>
         </li>
     </ul>

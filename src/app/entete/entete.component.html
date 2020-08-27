@@ -1,5 +1,7 @@
 <p>Bienvenue dans l'application</p>
 <p>Nous sommes le {{afficheMomentActuel()}}</p>
+<p>Nous sommes le {{aujourdhui|date:'short':'':'fr-FR'}}</p> <!--Nous sommes le 26/08/2020 18:57 -->
+<p>Nous sommes le {{aujourdhui|date:'long':'':'fr-FR'}}</p> <!--Nous sommes le 26/08/2020 à 18:57:00 GMT+2 -->
 <p>Compteur : {{compteur}}</p>
 <button (click) = "incrementeCompteur()">Compteur </button>
 <button (click) = "logCompteur()">log</button>

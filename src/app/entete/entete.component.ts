@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {ItemMenu} from '../structures/itemmenu';
 import {Orientation} from '../structures/orientation';
 
 @Component({
   selector: 'nat-entete',
   templateUrl: './entete.component.html',
-  styleUrls: ['./entete.component.css']
+  styleUrls: ['./entete.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class EnteteComponent implements OnInit {
   private readonly _aujourdhui: Date;
@@ -52,4 +53,9 @@ export class EnteteComponent implements OnInit {
   }
   public logCompteur():void {console.log("compteur = ", this.compteur);}
   public logCoucou():void {console.log("méthode logCoucou");}
+
+  ajoutDeLien(lien:ItemMenu):void {
+    console.log("entete:lien à ajouter :", lien);
+    this.items.push(lien);
+  }
 }

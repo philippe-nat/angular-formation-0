@@ -34,7 +34,7 @@ export class AppComponent {
   }
 
   ajoutDeLien(lien:ItemMenu):void {
-    console.log("lien à ajouter :", lien);
+    console.log("App:lien à ajouter :", lien);
     this.items.push(lien);
     
   }

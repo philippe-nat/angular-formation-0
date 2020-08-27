@@ -37,14 +37,7 @@ export class MenuComponent implements OnInit {
   set nbClics(c:number) { this._nbClics = c; }
   get nbClicsTotal() { return MenuComponent.nbClicsTotal; }
 
-  constructor() {
-    // this.titre = {valeur:"menu", infoBulle:""};
-    // this.items = [
-    //   {url:"https://www.google.fr", intitule:"google"},
-    //   {url:"https://www.bing.fr", intitule:"bing"}
-    // ];
-    // console.log("menu : orientation = ", this.orientation);
-}
+  constructor() {}
   
   @Output() clickEvent = new EventEmitter();
   public clicCompteur(detailEvenement: any):void {

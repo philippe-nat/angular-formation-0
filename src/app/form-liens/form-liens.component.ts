@@ -13,7 +13,7 @@ export class FormLiensComponent implements OnInit {
   ngOnInit(): void {}
 
   soumetLien(donneesFormulaire:ItemMenu):void {
-    console.log("soumission du lien : ", donneesFormulaire);
+    console.log("form:soumission du lien : ", donneesFormulaire);
     this.ajouterLien.emit(donneesFormulaire);
   }
 }

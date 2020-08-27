@@ -7,9 +7,9 @@
 <button (click) = "logCompteur()">log</button>
 <button *ngIf="(compteur != 0) || (aujourdhui.getSeconds() % 2)" (click) = "logCoucou()">log</button>
 <p>Seconde actuelle paire ? => {{ aujourdhui.getSeconds() % 2 == 0 | boolean2str }}</p>
-<p>Seconde actuelle paire ? => {{ aujourdhui.getSeconds() % 2 == 0 | boolean2str:'t/f' }}</p>
+<!-- <p>Seconde actuelle paire ? => {{ aujourdhui.getSeconds() % 2 == 0 | boolean2str:'t/f' }}</p>
 <p>Seconde actuelle paire ? => {{ aujourdhui.getSeconds() % 2 == 0 | boolean2str:'t/f':true }}</p>
-<p>Seconde actuelle paire ? => {{ aujourdhui.getSeconds() % 2 == 0 | boolean2str:'o/o':true }}</p>
+<p>Seconde actuelle paire ? => {{ aujourdhui.getSeconds() % 2 == 0 | boolean2str:'o/o':true }}</p> -->
 <nat-menu
     [titre]='{valeur:"Menu", infoBulle:""}'
     [items]='items'

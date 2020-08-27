@@ -1,0 +1,12 @@
+form{
+    border:solid 1px white;
+    display:inline-block;
+    background-color: #DD7777;
+}
+
+label {
+    margin:2px;
+}
+input {
+    margin-right:5px;
+}

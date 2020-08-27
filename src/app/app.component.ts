@@ -32,5 +32,11 @@ export class AppComponent {
     ];
     this.menuOrientation = Orientation.VERTICAL; // 1
   }
+
+  ajoutDeLien(lien:ItemMenu):void {
+    console.log("lien à ajouter :", lien);
+    this.items.push(lien);
+    
+  }
 }
 

@@ -1,0 +1,15 @@
+<form 
+    #ajouteLien="ngForm"
+    action="" 
+    (ngSubmit)="soumetLien(ajouteLien.value)"
+>
+    <fieldset>
+        <legend>Ajouter un lien au menu</legend>
+        <label for="Intitulé">Intitulé</label>
+        <input type="text" name="intitule" ngModel/>
+        <label for="url">Adresse web</label>
+        <input type="text" name="url" ngModel/>
+        <button type="submit">Valider</button>
+        <button type="reset">Annuler</button>
+    </fieldset>
+</form>

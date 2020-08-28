@@ -1,0 +1,20 @@
+<form 
+    [formGroup]="formulaire"
+    (ngSubmit) = "traiteFormulaire(formulaire.value)"
+>
+    <legend>Ajout d'un utilisateur</legend>
+    <fieldset>
+        <div class="champ">
+            <label for="sexe">Sexe:</label>     
+            <input type="radio" name="sexe" value="homme" id="h" formControlName="sexe"/> <label for="h">homme</label>
+            <input type="radio" name="sexe" value="femme" id="f" formControlName="sexe"/> <label for="f">femme</label>
+        </div>
+        <div class="champ"> <label for="prenom">Prénom:</label> <input type="text" name="prenom" formControlName="prenom" required/></div>
+        <div class="champ"> <label for="nom">Nom:</label>       <input type="text" name="nom"    formControlName="nom" required/></div>
+
+        <div class="champ"><label for="date">Date de naissance:</label> <input type="text"  name="date" formControlName="dateN" required/></div>
+        <div class="champ"><label for="mail">Mail:</label>              <input type="email" name="mail" formControlName="mail"/></div>
+
+        <button type="submit">Valider</button>
+    </fieldset>
+</form>

@@ -1,0 +1,9 @@
+form{
+    border:solid 1px white;
+    display:inline-block;
+    background-color: #EE9999;
+}
+div > label {width:140px;}
+input + label {width:60px;}
+label { margin:2px; display:inline-block;}
+input {margin-right:5px;}

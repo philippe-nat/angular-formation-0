@@ -7,3 +7,6 @@ div > label {width:140px;}
 input + label {width:60px;}
 label { margin:2px; display:inline-block;}
 input {margin-right:5px;}
+
+.ng-dirty {border:2px solid black;}
+.ng-invalid {border:2px solid red;}

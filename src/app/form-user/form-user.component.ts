@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, FormBuilder } from '@angular/forms';
 
 const EMAIL_REGEXP  = '^([a-zA-Z0-9_\\.-]+)@([a-zA-Z0-9_\\.-]+)\\.([a-zA-Z]{2,5})$';
 
@@ -15,7 +15,10 @@ export class FormUserComponent implements OnInit {
   public get formulaire(): FormGroup {return this._formulaire;}
   public set formulaire(value: FormGroup) {this._formulaire = value;}
 
-  constructor() { }
+  // constructor(private _formBuilder:FormBuilder) {
+    // this._formBuilder = _formBuilder;
+  //  }
+
   ngOnInit(): void {
     let dateN:Date = new Date(); //.toLocaleDateString();
     dateN.setFullYear(2000);

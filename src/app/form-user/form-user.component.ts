@@ -42,7 +42,7 @@ export class FormUserComponent implements OnInit {
     console.log("formulaire soumis :", donnees);
   }
 
-  private valideDate(controle:FormControl) {
+  private valideDate(controle:FormControl):null|Object {
     let dateN:Date = new Date(controle.value);
     let resultat:Object | null = null;
     

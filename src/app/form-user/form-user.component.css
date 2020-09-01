@@ -10,3 +10,8 @@ input {margin-right:5px;}
 
 .ng-dirty {border:2px solid black;}
 .ng-invalid {border:2px solid red;}
+
+div.champ > span.msg-erreur {
+    font:normal normal 12px arial;
+    color: red;
+}

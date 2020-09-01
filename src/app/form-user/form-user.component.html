@@ -12,7 +12,11 @@
         <div class="champ"> <label for="prenom">Prénom:</label> <input type="text" name="prenom" formControlName="prenom"/></div>
         <div class="champ"> <label for="nom">Nom:</label>       <input type="text" name="nom"    formControlName="nom" required/></div>
 
-        <div class="champ"><label for="date">Date de naissance:</label> <input type="text"  name="date" formControlName="dateN" required/></div>
+        <div class="champ">
+            <label for="date">Date de naissance:</label>
+            <input type="text"  name="date" formControlName="dateN" required/>
+            <span class="msg-erreur" *ngIf="formulaire.controls.dateN.errors">{{formulaire.controls.dateN.errors.valeur}}</span>
+        </div>
         <div class="champ"><label for="mail">Mail:</label>              <input type="email" name="mail" formControlName="mail"/></div>
 
         <button type="submit" [disabled]="!formulaire.valid">Valider</button>

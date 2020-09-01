@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 
 const EMAIL_REGEXP  = '^([a-zA-Z0-9_\\.-]+)@([a-zA-Z0-9_\\.-]+)\\.([a-zA-Z]{2,5})$';
 
@@ -24,14 +24,12 @@ export class FormUserComponent implements OnInit {
     let z = Validators.pattern(EMAIL_REGEXP);
     console.log(typeof(z));
     console.log(z);
-    
-    
+        
     this.formulaire = new FormGroup({
       sexe  : new FormControl('homme'),
       prenom: new FormControl('Toto', Validators.required),
       nom   : new FormControl(''),
-      // dateN : new FormControl(dateN.toLocaleDateString(), function() {return this.valideDate();}),
-      dateN : new FormControl(dateN.toLocaleDateString()),
+      dateN : new FormControl(dateN.toLocaleDateString(),  this.valideDate),
       mail  : new FormControl('', Validators.compose([
         Validators.pattern(EMAIL_REGEXP),
         Validators.required
@@ -44,12 +42,15 @@ export class FormUserComponent implements OnInit {
     console.log("formulaire soumis :", donnees);
   }
 
-  // private valideDate():boolean {
-  //   // console.log("valideDate : date =", this.formulaire.controls );
-  //   console.log("valideDate : age =", this._age );
+  private valideDate(controle:FormControl) {
+    let dateN:Date = new Date(controle.value);
+    let resultat:Object | null = null;
     
-  //   return (this._age >= 18 && this._age < 100);
-  // }
-
-  
+    let age:number = (Date.now() - dateN.getTime()) / (86400000 * 365.25);
+    console.log("    date = ", controle.value, "age =", age);
+    
+    if (age < 18) resultat = {"valeur" : "La personne doit être majeure"};
+    if (age > 99) resultat = {"valeur" : "La personne ne doit pas être centenaire"};
+    return resultat;
+  }
 }

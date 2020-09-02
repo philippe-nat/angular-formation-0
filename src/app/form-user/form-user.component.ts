@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { /*FormGroup, FormControl,*/ Validators, ValidatorFn, FormBuilder } from '@angular/forms';
+import { Validators, ValidatorFn, FormBuilder } from '@angular/forms';
 
 const EMAIL_REGEXP  = '^([a-zA-Z0-9_\\.-]+)@([a-zA-Z0-9_\\.-]+)\\.([a-zA-Z]{2,5})$';
 
@@ -9,12 +9,9 @@ const EMAIL_REGEXP  = '^([a-zA-Z0-9_\\.-]+)@([a-zA-Z0-9_\\.-]+)\\.([a-zA-Z]{2,5}
   styleUrls: ['./form-user.component.css']
 })
 export class FormUserComponent implements OnInit {
-  //private _formulaire: FormGroup;
   private _formulaire: any;
   private _age:number = undefined;
    
-  // public get formulaire(): FormGroup {return this._formulaire;}
-  // public set formulaire(value: FormGroup) {this._formulaire = value;}
   public get formulaire() {return this._formulaire;}
   public set formulaire(value) {this._formulaire = value;}
 
@@ -26,17 +23,8 @@ export class FormUserComponent implements OnInit {
     this._age = (Date.now() - dateN.getTime()) / (86400000 * 365.25);
     console.log(dateN.toLocaleDateString());
     let z = Validators.pattern(EMAIL_REGEXP);
-    // console.log(typeof(z));
-    // console.log(z);
-        
-    // this.formulaire = new FormGroup({
       this.formulaire = this._fb.group({
-      /*sexe  : new FormControl('homme'),*/
       sexe: this._fb.control('homme'),
-      // prenom: new FormControl('Toto', Validators.required),
-      // nom   : new FormControl(''),
-      // dateN : new FormControl(dateN.toLocaleDateString(),  this.valideDate),
-      // mail  : new FormControl('', Validators.compose([
       prenom: this._fb.control('Toto', Validators.required),
       nom   : this._fb.control(''),
       dateN : this._fb.control(dateN.toLocaleDateString(),  this.valideDate),
@@ -52,7 +40,6 @@ export class FormUserComponent implements OnInit {
     console.log("formulaire soumis :", donnees);
   }
 
-  // private valideDate(controle:FormControl):null|Object {
     private valideDate(controle):null|Object {
       console.log("valideDate : typeof(controle) =", typeof(controle), ", controle = ", controle);
       

@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   get titre() { return this._titre; }
   @Input() set titre(t: Titre) { this._titre = t; }
 
-  get items() { return this._items; }
+  get items() { return [...this._items]; }
   @Input() set items(t: Array<any>) { this._items = t; }
 
   get orientation() { return this._orientation; }

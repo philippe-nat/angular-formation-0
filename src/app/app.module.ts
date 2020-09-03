@@ -10,6 +10,7 @@ import { InitCap } from './pipes/initcap.pipe';
 import { Boolean2Str } from './pipes/boolean2str.pipe';
 import { FormLiensComponent } from './form-liens/form-liens.component';
 import { FormUserComponent } from './form-user/form-user.component';
+import { LiensService } from './services/liens.services';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { FormUserComponent } from './form-user/form-user.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LiensService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

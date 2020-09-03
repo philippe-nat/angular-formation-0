@@ -41,7 +41,7 @@ export class FormUserComponent implements OnInit {
   }
 
     private valideDate(controle):null|Object {
-      console.log("valideDate : typeof(controle) =", typeof(controle), ", controle = ", controle);
+      // console.log("valideDate : typeof(controle) =", typeof(controle), ", controle = ", controle);
       
     let dateN:Date = new Date(controle.value);
     let resultat:Object | null = null;

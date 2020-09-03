@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {ItemMenu} from '../structures/itemmenu';
+import { LiensService } from '../services/liens.services';
 
 @Component({
   selector: 'nat-form-liens',
@@ -7,13 +8,14 @@ import {ItemMenu} from '../structures/itemmenu';
   styleUrls: ['./form-liens.component.css']
 })
 export class FormLiensComponent implements OnInit {
-  @Output() ajouterLien = new EventEmitter();
+  // @Output() ajouterLien = new EventEmitter();
 
-  constructor() { }
+  constructor(private liens:LiensService) {}
   ngOnInit(): void {}
 
   soumetLien(donneesFormulaire:ItemMenu):void {
     console.log("form:soumission du lien : ", donneesFormulaire);
-    this.ajouterLien.emit(donneesFormulaire);
+    this.liens.add(donneesFormulaire);
+    // this.ajouterLien.emit(donneesFormulaire);
   }
 }

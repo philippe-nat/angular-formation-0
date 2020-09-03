@@ -8,8 +8,12 @@
     </p>
 
     <ul>
-        <li *ngFor="let i of items" [ngClass]="{'horizontal':orientation==0, 'vertical':orientation==1}">
+        <li 
+            *ngFor="let i of items" 
+                [ngClass]="{'horizontal':orientation==0, 'vertical':orientation==1}"
+        >
             <a 
+                [ngClass]="{'disabled':i.actif != true, 'enabled':i.actif == true}"
                 [href]="i.url" 
                 [textContent]="i.intitule|initCap"
                 target="_new"

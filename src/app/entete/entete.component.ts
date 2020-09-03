@@ -1,12 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {ItemMenu} from '../structures/itemmenu';
 import {Orientation} from '../structures/orientation';
+import { LiensService } from '../services/liens.services';
 
 @Component({
   selector: 'nat-entete',
   templateUrl: './entete.component.html',
   styleUrls: ['./entete.component.css'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  // changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection:ChangeDetectionStrategy.Default
 })
 export class EnteteComponent implements OnInit {
   private readonly _aujourdhui: Date;
@@ -25,20 +27,22 @@ export class EnteteComponent implements OnInit {
   get items() { return this._items; }
   set items(t:ItemMenu[]) { this._items = t; }
 
-  constructor() {
+  constructor(private srvLiens:LiensService) {
     this._compteur = 0;
     this._aujourdhui = new Date();
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     this._aujourdhuiStr = this._aujourdhui.toLocaleDateString('fr-FR', options);
     this.menuOrientation = Orientation.HORIZONTAL;
 
-    this.items = [
-      {url:"https://www.google.fr", intitule:"Google"},
-      {url:"https://www.bing.fr",   intitule:"Bing"},
-      {url:"https://www.perdu.com", intitule:"Perdu !"}
-    ];
+    // this.items = [
+    //   {url:"https://www.google.fr", intitule:"Google"},
+    //   {url:"https://www.bing.fr",   intitule:"Bing"},
+    //   {url:"https://www.perdu.com", intitule:"Perdu !"}
+    // ];
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.items = this.srvLiens.items;
+  }
 
   public afficheMomentActuel(): string {
     let auj: Date = new Date();

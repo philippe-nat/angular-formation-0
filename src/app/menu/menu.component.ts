@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Titre} from '../structures/titre';
 import {ItemMenu} from '../structures/itemmenu';
 import {Orientation} from '../structures/orientation';
+import { LiensService } from '../services/liens.services';
 
 // interface ItemMenu {
 //   url:string;
@@ -37,7 +38,7 @@ export class MenuComponent implements OnInit {
   set nbClics(c:number) { this._nbClics = c; }
   get nbClicsTotal() { return MenuComponent.nbClicsTotal; }
 
-  constructor() {}
+  constructor(private srvItem:LiensService) {}
   
   @Output() clickEvent = new EventEmitter();
   public clicCompteur(detailEvenement: any):void {
@@ -50,4 +51,15 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  activerItems() {
+    console.log("activer les items");
+    this.srvItem.enableAll();
+  }
+
+  desactiverItems() {
+    console.log("désactiver les items");
+    this.srvItem.disableAll();
+  }
+
 }

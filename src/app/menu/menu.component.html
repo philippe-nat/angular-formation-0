@@ -13,7 +13,7 @@
                 [ngClass]="{'horizontal':orientation==0, 'vertical':orientation==1}"
         >
             <a 
-                [ngClass]="{'disabled':i.actif != true, 'enabled':i.actif == true}"
+                [ngClass]="{'disabled':i.actif == false, 'enabled':i.actif != false}"
                 [href]="i.url" 
                 [textContent]="i.intitule|initCap"
                 target="_new"
@@ -22,4 +22,7 @@
     </ul>
     <button [disabled]='boutonInactif' (click)="clicCompteur($event)">clic !</button>
     <button disabled='{{boutonInactif}}' (click)="clicCompteur($event)">clic2 !</button>
+
+    <button (click)="activerItems()">activer</button>
+    <button (click)="desactiverItems()">désactiver</button>
 </nav>

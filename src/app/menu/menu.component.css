@@ -21,12 +21,10 @@ li.horizontal {
 
 nav a.disabled {
 	pointer-events: none;
-    cursor: default;
     color:gray;
     font:italic normal 12px Arial;
 }
 
 nav a.enabled {
 	pointer-events: all;
-	cursor: default;
 }

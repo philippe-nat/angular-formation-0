@@ -15,6 +15,16 @@ export class LiensService {
           ];
     }
 
+    enableAll():void {
+        for (let i of this._items)
+            i.actif = true;
+    }
+
+    disableAll():void {
+        for (let i of this._items)
+            i.actif = false;
+    }
+
     add(t:ItemMenu):void {
         console.log("add lien");
         if (t.url != "" && t.intitule != "" ) {

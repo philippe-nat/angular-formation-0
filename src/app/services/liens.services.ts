@@ -22,6 +22,8 @@ export class LiensService {
     }
     
     traceItems():void {
+        console.log("Liste des items :");
+        
         for (let i of this._items)
             console.log("item", i);
     }
@@ -44,7 +46,8 @@ export class LiensService {
             console.log("push");
             t.actif = true;
             this._items.push(t);
-            console.log("items : ", this._items);
+            // console.log("items : ", this._items);
+            this.traceItems();
         }
     }
     modify(index:number, t:ItemMenu):void {

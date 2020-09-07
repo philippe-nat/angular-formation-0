@@ -16,6 +16,7 @@ export class FormLiensComponent implements OnInit {
   soumetLien(donneesFormulaire:ItemMenu):void {
     console.log("form:soumission du lien : ", donneesFormulaire);
     this.liens.add(donneesFormulaire);
+    this.liens.traceItems();
     // this.liens.modify(0, donneesFormulaire);
     // this.ajouterLien.emit(donneesFormulaire);
   }

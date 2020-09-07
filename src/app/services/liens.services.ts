@@ -8,7 +8,7 @@ export class LiensService {
     private _items$:BehaviorSubject<ItemMenu[]>;
 
     get items() { return [...this._items]; }
-    get items$() { return this._items$; }
+     
     // set items(t:ItemMenu[]) { this._items = t; }
     set items$(ob:BehaviorSubject<ItemMenu[]>) { this._items$ = ob; }
   

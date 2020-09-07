@@ -4,11 +4,6 @@ import {ItemMenu} from '../structures/itemmenu';
 import {Orientation} from '../structures/orientation';
 import { LiensService } from '../services/liens.services';
 
-// interface ItemMenu {
-//   url:string;
-//   intitule:string; 
-// }
-
 @Component({
   selector: 'nat-menu',
   templateUrl: './menu.component.html',

@@ -17,15 +17,14 @@ export class FormLiensComponent implements OnInit {
     console.log("form:soumission du lien : ", donneesFormulaire);
     this.liens.add(donneesFormulaire);
     this.liens.traceItems();
-    // this.liens.modify(0, donneesFormulaire);
     // this.ajouterLien.emit(donneesFormulaire);
   }
 
   desactiverItems() {
     console.log("formlien: désactiver les items");
     this.liens.disableAll();
-    // this.srvItem.disableAll();
   }
+  
   ajouterItem() {
     console.log("formlien : ajouterItem");
     this.liens.add({url:"www.oracle.com", intitule:"oracle", actif:true});
@@ -39,5 +38,4 @@ export class FormLiensComponent implements OnInit {
     console.log("formlien : ListerItem");
     this.liens.traceItems();
   }
-
 }

@@ -20,32 +20,17 @@ export class AppComponent  implements OnInit {
   set titre(t:Titre) {this._titre = t;}
 
   get items() { return [...this._items]; }
-  // set items(t:ItemMenu[]) { this._items = t; }
- 
+  
   get menuOrientation() {return this._menuOrientation;}
   set menuOrientation(o:Orientation) {this._menuOrientation = o;}
 
   constructor(private srvLien:LiensService) { 
-    // NullInjectorError:  No provider for LiensService!
     this.titre = {valeur:"Titre", infoBulle:"titre de la page"};
     this.menuOrientation = Orientation.VERTICAL;
-    // this.items = [
-    //   {url:"https://www.google.fr", intitule:"google"},
-    //   {url:"https://www.bing.fr", intitule:"bing"}
-    // ]; 
-    //this._items = srvLien.items;  déplacé ds ngOnInit
-    // this._items.push({url:"https://www.antivirus.fr", intitule:"antivirus"}); // ajoute
-    // srvLien.add({url:"https://www.virus.fr", intitule:"virus"}); // OK
-    // this.menuOrientation = Orientation.VERTICAL; // 1
   }
 
   ngOnInit(): void {
     this._items = this.srvLien.items; 
   }
-
-  // ajoutDeLien(lien:ItemMenu):void {
-  //   console.log("App:lien à ajouter :", lien);
-  //   this.items.push(lien);
-  // }
 }
 

@@ -1,18 +1,23 @@
 import {ItemMenu} from '../structures/itemmenu'
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 // @Injectable()
 export class LiensService {
     private _items:ItemMenu[];
+    private _items$:BehaviorSubject<ItemMenu[]>;
 
     get items() { return [...this._items]; }
+    get items$() { return this._items$; }
     // set items(t:ItemMenu[]) { this._items = t; }
+    set items$(ob:BehaviorSubject<ItemMenu[]>) { this._items$ = ob; }
   
     constructor() {
         this._items = [
             {url:"https://www.google.fr", intitule:"google", actif:true},
             {url:"https://www.bing.fr",   intitule:"bing",   actif:false}
           ];
+          this.items$ = new BehaviorSubject<ItemMenu[]>(this.items);
     }
 
     traceEnable():void {
@@ -46,7 +51,7 @@ export class LiensService {
             console.log("push");
             t.actif = true;
             this._items.push(t);
-            // console.log("items : ", this._items);
+            this.items$.next(this.items); // on indique à l'observeur que le menu a changé
             this.traceItems();
         }
     }

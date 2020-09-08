@@ -11,6 +11,7 @@ import { Boolean2Str } from './pipes/boolean2str.pipe';
 import { FormLiensComponent } from './form-liens/form-liens.component';
 import { FormUserComponent } from './form-user/form-user.component';
 import { LiensService } from './services/liens.services';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LiensService } from './services/liens.services';
     InitCap,
     Boolean2Str,
     FormLiensComponent,
-    FormUserComponent
+    FormUserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

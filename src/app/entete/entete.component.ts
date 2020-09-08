@@ -36,7 +36,6 @@ export class EnteteComponent implements OnInit, OnDestroy {
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     this._aujourdhuiStr = this._aujourdhui.toLocaleDateString('fr-FR', options);
     this.menuOrientation = Orientation.HORIZONTAL;
-    this._abonnement = srvLiens.items$.subscribe(nouveauxLiens => {this.items = nouveauxLiens;});
 
     // this.items = [
     //   {url:"https://www.google.fr", intitule:"Google"},
@@ -49,6 +48,8 @@ export class EnteteComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.items = this.srvLiens.items;
+    console.log("observable entete :", this.srvLiens.items$);
+    this._abonnement = this.srvLiens.items$.subscribe(nouveauxLiens => {this.items = nouveauxLiens;});
   }
 
   public afficheMomentActuel(): string {

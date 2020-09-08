@@ -8,6 +8,7 @@ export class LiensService {
     private _items$:BehaviorSubject<ItemMenu[]>;
 
     get items() { return [...this._items]; }
+    get items$() {return this._items$;}
      
     // set items(t:ItemMenu[]) { this._items = t; }
     set items$(ob:BehaviorSubject<ItemMenu[]>) { this._items$ = ob; }
@@ -17,7 +18,8 @@ export class LiensService {
             {url:"https://www.google.fr", intitule:"google", actif:true},
             {url:"https://www.bing.fr",   intitule:"bing",   actif:false}
           ];
-          this.items$ = new BehaviorSubject<ItemMenu[]>(this.items);
+          this.items$ = new BehaviorSubject<ItemMenu[]>(this._items);
+          console.log("service constructeur : observable : ", this.items$);
     }
 
     traceEnable():void {

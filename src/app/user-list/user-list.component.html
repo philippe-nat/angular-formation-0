@@ -1,5 +1,7 @@
 <div class="toolbar">
     <button (click)="loadUsers()">Charger la liste</button>
+    <div class="erreur" *ngIf="errChargement!=''">{{errChargement}}</div>
+    <div *ngIf="listeChargee">Chargement terminé</div>
 </div>
 
 <div class="liste">

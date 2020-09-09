@@ -12,6 +12,8 @@ import { FormLiensComponent } from './form-liens/form-liens.component';
 import { FormUserComponent } from './form-user/form-user.component';
 import { LiensService } from './services/liens.services';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserCardComponent } from './user-card/user-card.component';
+import { Sexe2Str } from './pipes/sexe2str.pipe';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { UserListComponent } from './user-list/user-list.component';
     MenuComponent,
     InitCap,
     Boolean2Str,
+    Sexe2Str,
     FormLiensComponent,
     FormUserComponent,
-    UserListComponent
+    UserListComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,

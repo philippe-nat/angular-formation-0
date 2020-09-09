@@ -28,31 +28,11 @@ export class UserListComponent implements OnInit {
     return undefined;
   }
 
-  // constructor(private httpC:HttpClient) {
   constructor(private um:UserManagerService) {
-    um.nbDemande = 20;
-    um.urlGet = 'https://randomuser.me/api/';
+    // um.nbDemande = 20;
+    // um.urlGet = 'https://randomuser.me/api/';
     const rootDirPhotos = 'https://randomuser.me/api/portraits/thumb';
     this.users = [];
-    /* this.users = [
-    //   {
-    //     sexe:1, prenom:"Jean-Philippe", nom:"Airvite", ville:"Montfroc",  
-    //     mail:"jpairvite@petitsbateaux.fr" , ddn:new Date(1995, 10, 20), photo:rootDirPhotos + "/men/14.jpg"
-    //   }, 
-    //   {
-    //     sexe:2, prenom:"Anastasie", nom:"Générale", ville:"L'Hospitalet", 
-    //     mail:"egenerale@yopmail.com" , ddn:new Date(1990, 11, 22), photo:rootDirPhotos + "/women/13.jpg"
-    //   },
-    //   {
-    //     sexe:1, prenom:"Eddy", nom:"Donque", ville:"Douala", 
-    //     mail:"edonque@orange.cm" , ddn:new Date(1985, 12, 24), photo:rootDirPhotos + "/men/16.jpg"
-    //   },
-    //   {
-    //     sexe:2, prenom:"Sophie", nom:"Fonsec", ville:"Bayonne", 
-    //     mail:"sfonsec@free.fr" , ddn:new Date(1980, 1, 26), photo:rootDirPhotos +"/women/8.jpg"
-    //   }
-     ];
-     */
   }
 
   ngOnInit(): void {}
@@ -67,7 +47,7 @@ export class UserListComponent implements OnInit {
       user.mail   = u.email;
       user.ddn    = u.dob.date;
       user.photo  = u.picture.thumbnail;
-      console.log("for: user net = ", user);
+      // console.log("for: user net = ", user);
       
       this._users.push(user);
     }
@@ -75,35 +55,11 @@ export class UserListComponent implements OnInit {
 
   public loadUsers(nb:number):void {
     console.log("user-list.loadUser:nb=", nb, "type : ", typeof(nb));
-    // nb = nb.nb;
     
-    
-    // const url = "https://randomuser.me/api/?results=20";
-    // this.httpC
-    //   .get(url)
-    //   .subscribe( 
-    //     (res:any) => {
-    //       this._usersBrut = res.results;
-    //       console.log("tableau brut : ", this._usersBrut);
-    //       this.usersBrut2Users();
-    //       console.log("tableau net : ", this.users);
-    //     },
-    //     (err:any) => {
-    //       console.log("Une erreur est survenue :", err.message);
-    //       this._errChargement = err.message;
-    //     },
-    //     () => {
-    //       console.log("FIN du remplissage de la liste");
-    //       this._listeChargee = true;
-    //     }
-    // );
-
-    const url = "https://randomuser.me/api/";
-    // this.httpC
+    // const url = "https://randomuser.me/api/";
     this.um.nbDemande = nb;
     console.log("user-list.loadUser 2 :nb=", nb);
     this._users = [];
-    this._usersBrut = [];
     this.um.getUsers().subscribe(
         (res:any) => {
           this._usersBrut = res.results;
@@ -120,6 +76,5 @@ export class UserListComponent implements OnInit {
           this._listeChargee = true;
         }
     );
-    
   }
 }

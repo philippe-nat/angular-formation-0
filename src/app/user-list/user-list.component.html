@@ -1,5 +1,5 @@
 <div class="toolbar">
-    <form #nb="ngForm" (ngSubmit)="loadUsers(nb.value.nb)">
+    <form #nombre="ngForm" (ngSubmit)="loadUsers(nombre.value.nb)">
         <label for="nb">Nombre d'utilisateurs à charger :</label>
         <input type="number" name="nb" value="1" ngModel/>
         <!--button (click)="loadUsers()">Charger la liste</button-->

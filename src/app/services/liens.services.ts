@@ -19,7 +19,7 @@ export class LiensService {
             {url:"https://www.bing.fr",   intitule:"bing",   actif:false}
           ];
           this.items$ = new BehaviorSubject<ItemMenu[]>(this._items);
-          console.log("service constructeur : observable : ", this.items$);
+        //   console.log("service constructeur : observable : ", this.items$);
     }
 
     traceEnable():void {

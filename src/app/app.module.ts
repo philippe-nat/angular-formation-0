@@ -12,6 +12,7 @@ import { Boolean2Str } from './pipes/boolean2str.pipe';
 import { FormLiensComponent } from './form-liens/form-liens.component';
 import { FormUserComponent } from './form-user/form-user.component';
 import { LiensService } from './services/liens.services';
+import { UserManagerService } from './services/user-manager.service';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { Sexe2Str } from './pipes/sexe2str.pipe';
@@ -35,7 +36,10 @@ import { Sexe2Str } from './pipes/sexe2str.pipe';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [LiensService],
+  providers: [
+    LiensService,
+    UserManagerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

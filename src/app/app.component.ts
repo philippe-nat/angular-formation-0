@@ -30,15 +30,15 @@ export class AppComponent  implements OnInit, OnDestroy {
   constructor(private srvLien:LiensService) { 
     this.titre = {valeur:"Titre", infoBulle:"titre de la page"};
     this.menuOrientation = Orientation.VERTICAL;
-    console.log("constructeur app");
-    console.log("srvLien:", srvLien);
+    // console.log("constructeur app");
+    // console.log("srvLien:", srvLien);
   }
 
    ngOnInit(): void {
     this._items = this.srvLien.items; 
-    console.log("init app, service : ", this.srvLien);
+    // console.log("init app, service : ", this.srvLien);
     // console.log("observable app direct : ", this.srvLien._items$); // OK
-    console.log("observable app par getter : ", this.srvLien.items$); // undefined
+    // console.log("observable app par getter : ", this.srvLien.items$); // undefined
     
     this._abonnement = this.srvLien.items$.subscribe(nouveauxLiens => {this.items = nouveauxLiens;});
   }

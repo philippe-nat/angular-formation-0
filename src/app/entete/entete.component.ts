@@ -48,7 +48,7 @@ export class EnteteComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.items = this.srvLiens.items;
-    console.log("observable entete :", this.srvLiens.items$);
+    // console.log("observable entete :", this.srvLiens.items$);
     this._abonnement = this.srvLiens.items$.subscribe(nouveauxLiens => {this.items = nouveauxLiens;});
   }
 

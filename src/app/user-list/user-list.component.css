@@ -15,3 +15,8 @@
     color: red;
     margin:2px;
 }
+
+form input {
+    width:30px;
+    margin:0 3px 0 3px;
+}

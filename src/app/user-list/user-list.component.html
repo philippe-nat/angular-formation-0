@@ -1,5 +1,10 @@
 <div class="toolbar">
-    <button (click)="loadUsers()">Charger la liste</button>
+    <form #nb="ngForm" (ngSubmit)="loadUsers(nb.value.nb)">
+        <label for="nb">Nombre d'utilisateurs à charger :</label>
+        <input type="number" name="nb" value="1" ngModel/>
+        <!--button (click)="loadUsers()">Charger la liste</button-->
+        <button type="submit">Charger la liste</button>
+    </form>
     <div class="erreur" *ngIf="errChargement!=''">{{errChargement}}</div>
     <div *ngIf="listeChargee">Chargement terminé</div>
 </div>

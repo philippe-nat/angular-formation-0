@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { core } from '@angular/compiler';
 
 import { AppComponent } from './app.component';
@@ -27,11 +28,12 @@ import { Sexe2Str } from './pipes/sexe2str.pipe';
     FormUserComponent,
     UserListComponent,
     UserCardComponent
-  ],
+  ], 
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [LiensService],
   bootstrap: [AppComponent]

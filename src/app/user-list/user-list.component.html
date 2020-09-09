@@ -1,11 +1,7 @@
 <div class="toolbar">
-    <button>Charger la liste</button>
+    <button (click)="loadUsers()">Charger la liste</button>
 </div>
 
 <div class="liste">
     <nat-user-card *ngFor="let user of users" [user]="user"></nat-user-card>
-    <!-- <nat-user-card [user]="getUser(0)"></nat-user-card>
-    <nat-user-card [user]="getUser(1)"></nat-user-card>
-    <nat-user-card [user]="getUser(2)"></nat-user-card>
-    <nat-user-card [user]="getUser(3)"></nat-user-card> -->
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Utilisateur} from '../structures/utilisateur';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'nat-user-list',
@@ -10,6 +11,7 @@ export class UserListComponent implements OnInit {
   private _users:Utilisateur[];
   get users():Utilisateur[] {return [...this._users];}
   set users(t:Utilisateur[]) {this._users = t;}
+  private _usersBrut:Object[];
   
   public getUser(index:number):Utilisateur|undefined {
     if (index < this._users.length)
@@ -17,7 +19,7 @@ export class UserListComponent implements OnInit {
     return undefined;
   }
 
-  constructor() {
+  constructor(private httpC:HttpClient) {
     const rootDirPhotos = 'https://randomuser.me/api/portraits/thumb';
     this.users = [
       {
@@ -40,6 +42,19 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // const url = "https://randomuser.me/api/?results=20";
+    // this.httpC
+    //   .get(url)
+    //   .subscribe( (res:any) => {this._usersBrut = res.results;console.log("tableau brut : ", this._usersBrut);
+    // });
+  }
+
+  public loadUsers():void {
+    const url = "https://randomuser.me/api/?results=20";
+    this.httpC
+      .get(url)
+      .subscribe( (res:any) => {this._usersBrut = res.results;console.log("tableau brut : ", this._usersBrut);
+    });
   }
 
 }

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { core } from '@angular/compiler';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,13 @@ import { UserManagerService } from './services/user-manager.service';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { Sexe2Str } from './pipes/sexe2str.pipe';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+
+const appRoutes:Routes = [
+  {path:'liste', component:UserListComponent},
+  {path:'fiche', component:UserDetailComponent},
+  {path:'', pathMatch:"full", redirectTo:"liste"}
+];
 
 @NgModule({
   declarations: [
@@ -29,14 +36,15 @@ import { Sexe2Str } from './pipes/sexe2str.pipe';
     FormLiensComponent,
     FormUserComponent,
     UserListComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserDetailComponent
   ], 
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     LiensService,

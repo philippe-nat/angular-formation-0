@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {}
-  ngOnDestroy(): void {this._souscription.unsubscribe();}
+  ngOnDestroy(): void {if (this._souscription !== undefined) this._souscription.unsubscribe();}
 
   public loadUsers(nb:number):void {
     console.log("user-list.loadUser:nb=", nb, "type : ", typeof(nb));
@@ -61,7 +61,9 @@ export class UserListComponent implements OnInit, OnDestroy {
         () => {
           console.log("FIN du remplissage de la liste");
           this._listeChargee = true;
+          this._souscription.unsubscribe();
         }
     );
+    // this._souscription.unsubscribe();
   }
 }

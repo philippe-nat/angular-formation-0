@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, share, shareReplay } from 'rxjs/operators';
 import { Utilisateur } from '../structures/utilisateur';
 
 @Injectable()
@@ -9,6 +9,8 @@ export class UserManagerService {
     private _urlGet:string = "https://randomuser.me/api/";
     public get urlGet():string {return this._urlGet;}
     public set urlGet(value:string) {this._urlGet = value;}
+
+    private _requeteGet:string = this.urlGet;
 
     private _nbDemande: number;
     public get nbDemande(): number {return this._nbDemande;}
@@ -27,14 +29,16 @@ export class UserManagerService {
         console.log("service user-manager : chargement de", this.nbDemande, " utilisateurs");
         
         if (typeof(this.nbDemande) != 'undefined')
-            this.urlGet += ("?results=" + this.nbDemande);
+            this._requeteGet = this.urlGet + ("?results=" + this.nbDemande);
+        
+        console.log("url de la requete :", this._requeteGet);
 
         return this.httpc
-            .get(this.urlGet)
+            .get(this._requeteGet)
             .pipe(
                 map( (resultat:any) => resultat.results )
                 ,map( (r:any) => { 
-                    console.log("map : res=", r); // tout le tableau est là, ramené d'un seul coup
+                    console.log("map : taille du tableau = ", r.length, "res=", r); // tout le tableau est là, ramené d'un seul coup
                     let tabUsers :Utilisateur[] = [];
                     for (let u of r) {
                         let user:Utilisateur = <Utilisateur>{};

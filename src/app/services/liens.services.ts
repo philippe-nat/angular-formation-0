@@ -15,8 +15,8 @@ export class LiensService {
   
     constructor() {
         this._items = [
-            {url:"https://www.google.fr", intitule:"google", actif:true},
-            {url:"https://www.bing.fr",   intitule:"bing",   actif:false}
+            {url:"/", intitule:"Accueil", actif:true},
+            {url:"/fiche",   intitule:"Fiches",   actif:false}
           ];
           this.items$ = new BehaviorSubject<ItemMenu[]>(this._items);
         //   console.log("service constructeur : observable : ", this.items$);

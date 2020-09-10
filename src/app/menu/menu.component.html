@@ -14,9 +14,8 @@
         >
             <a 
                 [ngClass]="{'disabled':i.actif == false, 'enabled':i.actif != false}"
-                [href]="i.url" 
+                [routerLink]="i.url" 
                 [textContent]="i.intitule|initCap"
-                target="_new"
             ></a>
         </li>
     </ul>

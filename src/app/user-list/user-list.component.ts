@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Utilisateur} from '../structures/utilisateur';
 import { HttpClient } from '@angular/common/http';
 import { UserManagerService } from '../services/user-manager.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'nat-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   private _users:Utilisateur[];
   get users():Utilisateur[] {return [...this._users];}
   set users(t:Utilisateur[]) {this._users = t;}
   private _usersBrut:any[];
+  private _souscription:Subscription;
 
   private _listeChargee: boolean = false;
   public get listeChargee(): boolean {return this._listeChargee;}
@@ -29,43 +31,28 @@ export class UserListComponent implements OnInit {
   }
 
   constructor(private um:UserManagerService) {
-    // um.nbDemande = 20;
-    // um.urlGet = 'https://randomuser.me/api/';
     const rootDirPhotos = 'https://randomuser.me/api/portraits/thumb';
     this.users = [];
   }
 
   ngOnInit(): void {}
-
-  private usersBrut2Users():void {
-    for (let u of this._usersBrut) {
-      let user:Utilisateur = <Utilisateur>{};
-      user.sexe   = u.gender == 'male' ? 1 : 2;
-      user.prenom = u.name.first;
-      user.nom    = u.name.last;
-      user.ville  = u.location.city;
-      user.mail   = u.email;
-      user.ddn    = u.dob.date;
-      user.photo  = u.picture.thumbnail;
-      // console.log("for: user net = ", user);
-      
-      this._users.push(user);
-    }
-  }
+  ngOnDestroy(): void {this._souscription.unsubscribe();}
 
   public loadUsers(nb:number):void {
     console.log("user-list.loadUser:nb=", nb, "type : ", typeof(nb));
     
-    // const url = "https://randomuser.me/api/";
     this.um.nbDemande = nb;
     console.log("user-list.loadUser 2 :nb=", nb);
     this._users = [];
-    this.um.getUsers().subscribe(
+    this._souscription = this.um.getUsers().subscribe(
         (res:any) => {
-          this._usersBrut = res.results;
-          // console.log("tableau brut : ", this._usersBrut);
-          this.usersBrut2Users();
-          // console.log("tableau net : ", this.users);
+          console.log("user-list.loadUsers : tableau brut : ", res);
+          try {
+            this._users = res;
+          } catch(erreur) {
+            this._errChargement = erreur;
+            console.error(erreur);
+          }
         },
         (err:any) => {
           console.log("Une erreur est survenue :", err.message);

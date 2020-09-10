@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, share, shareReplay } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 import { Utilisateur } from '../structures/utilisateur';
 
 @Injectable()
@@ -54,6 +54,7 @@ export class UserManagerService {
                     console.log("map: tableau users = ", tabUsers);
                     return tabUsers;
                 })
+                ,delay(0)
             )
         ;
     }

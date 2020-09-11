@@ -1,35 +1,21 @@
-<p>Fiche de l'utilisateur {{currentUserName}}</p>
-
-<div>
-    <!-- <table>
+<div *ngIf="currentUser">
+    <table>
         <caption>Fiche de l'utilisateur {{currentUserName}}</caption>
         <tbody>
-            <tr><td>Sexe</td>             <td></td></tr>
-            <tr><td>Prénom</td>           <td></td></tr>
-            <tr><td>Nom</td>              <td></td></tr>
-            <tr><td>Nom d'utilisateur</td><td>{{currentUserName}}</td></tr>
-            <tr><td>Ville</td>            <td></td></tr>
-            <tr><td>Date de naissance</td><td></td></tr>
-            <tr><td>Mail</td>             <td></td></tr>
-            <tr><td>Longitude</td>        <td></td></tr>
-            <tr><td>Latitude</td>         <td></td></tr>
+            <tr><td>Sexe</td>             <td>{{currentUser.sexe}}</td></tr>
+            <tr><td>Prénom</td>           <td>{{currentUser.prenom}}</td></tr>
+            <tr><td>Nom</td>              <td>{{currentUser.nom}}</td></tr>
+            <tr><td>Nom d'utilisateur</td><td>{{currentUser.login}}</td></tr>
+            <tr><td>Ville</td>            <td>{{currentUser.ville}}</td></tr>
+            <tr><td>Date de naissance</td><td>{{currentUser.ddn}}</td></tr>
+            <tr><td>Mail</td>             <td>{{currentUser.mail}}</td></tr>
+            <tr><td>Longitude</td>        <td>{{currentUser.longitude}}</td></tr>
+            <tr><td>Latitude</td>         <td>{{currentUser.latitude}}</td></tr>
         </tbody>
         <tfoot>
 
         </tfoot>
-    </table> -->
-    <!-- <ul>
-        <li>Sexe : </li>
-        <li>Prénom : </li>
-        <li>Nom : </li>
-        <li>Nom d'utilisateur :{{currentUserName}} </li>
-        <li>Ville : </li>
-        <li>Date de naissance : </li>
-        <li>Age : </li>
-        <li>Mail : </li>
-        <li>Longitude : </li>
-        <li>Latitude : </li>
-    </ul> -->
-    <img src="" alt="photo de "/>
+    </table>
+    <img src="{{currentUser.photoGrande}}" alt="photo de "/>
 </div>
 <a routerLink="/fiche/suivant">suivant</a>

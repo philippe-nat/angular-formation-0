@@ -11,7 +11,8 @@ export class UserManagerService {
     public set urlGet(value:string) {this._urlGet = value;}
 
     private _requeteGet:string = this.urlGet;
-
+    private _tabUsers :Utilisateur[] = [];
+    
     private _nbDemande: number;
     public get nbDemande(): number {return this._nbDemande;}
     public set nbDemande(n: number) {
@@ -39,7 +40,7 @@ export class UserManagerService {
                 map( (resultat:any) => resultat.results )
                 ,map( (r:any) => { 
                     console.log("map : taille du tableau = ", r.length, "res=", r); // tout le tableau est là, ramené d'un seul coup
-                    let tabUsers :Utilisateur[] = [];
+                    // let tabUsers :Utilisateur[] = [];
                     for (let u of r) {
                         let user:Utilisateur = <Utilisateur>{};
                         user.sexe = u.gender == 'male' ? 1 : 2;
@@ -53,13 +54,24 @@ export class UserManagerService {
                         user.photoGrande = u.picture.large;
                         user.longitude = parseFloat(u.location.coordinates.longitude);
                         user.latitude  = parseFloat(u.location.coordinates.latitude);
-                        tabUsers.push(user);
+                        // tabUsers.push(user);
+                        this._tabUsers.push(user);
                     }
-                    console.log("map: tableau users = ", tabUsers);
-                    return tabUsers;
+                    //console.log("map: tableau users = ", tabUsers);
+                    console.log("map: tableau users = ", this._tabUsers);
+                    //return tabUsers;
+                    return this._tabUsers;
                 })
                 ,delay(0)
             )
         ;
+    }
+
+    public getUserByLogin(login:string):Utilisateur|undefined {
+        if (login == undefined || login.length == 0) return undefined;
+        console.log("getUserByLogin");
+        let user:Utilisateur = this._tabUsers.find( (u) => u.login === login );
+        // console.log("utilisateur courant : ", user);
+        return user;
     }
 }

@@ -2,17 +2,14 @@ table {
     width:600px;
     border:solid 1px black;
     margin:3px;
-    background-color: sandybrown;
 }
 caption {
     font:normal normal 20px Arial;
+    background-color: #CCAA99;
 }
 
-td {
-    padding:5px;
-    /* border:solid 1px blue; */
-}
-
-img {
-    margin:10px;
-}
+tr {padding:5px;}
+tr:nth-child(2n+1) {background-color: #EEFFEE;}
+tr:nth-child(2n) {background-color: #AAFFAA;}
+td {padding:5px;}
+img {margin:10px;}

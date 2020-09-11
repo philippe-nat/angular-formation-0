@@ -48,7 +48,11 @@ export class UserManagerService {
                         user.ville  = u.location.city;
                         user.mail   = u.email;
                         user.ddn    = u.dob.date;
-                        user.photo = u.picture.thumbnail;
+                        user.photo  = u.picture.thumbnail;
+                        user.login  = u.login.username;
+                        user.photoGrande = u.picture.large;
+                        user.longitude = parseFloat(u.location.coordinates.longitude);
+                        user.latitude  = parseFloat(u.location.coordinates.latitude);
                         tabUsers.push(user);
                     }
                     console.log("map: tableau users = ", tabUsers);

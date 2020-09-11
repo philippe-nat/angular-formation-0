@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Utilisateur} from '../structures/utilisateur';
-import { HttpClient } from '@angular/common/http';
 import { UserManagerService } from '../services/user-manager.service';
 import { Subscription } from 'rxjs';
 
@@ -64,6 +63,5 @@ export class UserListComponent implements OnInit, OnDestroy {
           this._souscription.unsubscribe();
         }
     );
-    // this._souscription.unsubscribe();
   }
 }

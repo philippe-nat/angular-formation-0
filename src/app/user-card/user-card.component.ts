@@ -14,8 +14,11 @@ export class UserCardComponent implements OnInit {
 
   constructor() { 
     console.log("constructeur user card : nom=", this.user);
-    
   }
 
   ngOnInit(): void {}
+
+  public getUserFicheUrl():string {
+    return "/detail/" + this.user.mail;
+  }
 }

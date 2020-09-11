@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Utilisateur } from '../structures/utilisateur';
-import { Sexe2Str } from '../pipes/sexe2str.pipe';
 
 @Component({
   selector: 'nat-user-card',
@@ -19,6 +18,6 @@ export class UserCardComponent implements OnInit {
   ngOnInit(): void {}
 
   public getUserFicheUrl():string {
-    return "/detail/" + this.user.mail;
+    return `/fiche/${this.user.login}`;
   }
 }

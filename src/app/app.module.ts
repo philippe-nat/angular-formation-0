@@ -21,7 +21,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const appRoutes:Routes = [
   {path:'liste', component:UserListComponent},
-  {path:'fiche', component:UserDetailComponent},
+  {path:'fiche/:nomUser', component:UserDetailComponent},
   {path:'', pathMatch:"full", redirectTo:"liste"}
 ];
 

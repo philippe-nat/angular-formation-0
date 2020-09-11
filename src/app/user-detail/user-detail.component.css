@@ -1,0 +1,18 @@
+table {
+    width:600px;
+    border:solid 1px black;
+    margin:3px;
+    background-color: sandybrown;
+}
+caption {
+    font:normal normal 20px Arial;
+}
+
+td {
+    padding:5px;
+    /* border:solid 1px blue; */
+}
+
+img {
+    margin:10px;
+}
